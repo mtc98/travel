@@ -28,20 +28,21 @@ class _DestinationScreenState extends State<DestinationScreen> {
         Stack(
           children: <Widget>[
             Container(
-              height: MediaQuery.of(context).size.width,
+              //color: Colors.black,
+              height: MediaQuery.of(context).size.width * 0.7,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30.0),
                 boxShadow: [
                   BoxShadow(
                       color: Colors.black26,
-                      offset: Offset(0.0, 2.0),
+                      offset: Offset(0.0, 3.0),
                       blurRadius: 6.0),
                 ],
               ),
               child: Hero(
                 tag: widget.destination.imageUrl,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(30.0),
+                  borderRadius: BorderRadius.circular(20.0),
                   child: Image(
                       image: AssetImage(widget.destination.imageUrl),
                       fit: BoxFit.cover),
@@ -49,13 +50,13 @@ class _DestinationScreenState extends State<DestinationScreen> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 40.0),
+              padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 15.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   IconButton(
                     icon: Icon(Icons.arrow_back),
-                    iconSize: 30.0,
+                    iconSize: 25.0,
                     color: Colors.black,
                     onPressed: () => Navigator.pop(context),
                   ),
@@ -63,13 +64,13 @@ class _DestinationScreenState extends State<DestinationScreen> {
                     children: <Widget>[
                       IconButton(
                         icon: Icon(Icons.search),
-                        iconSize: 30.0,
+                        iconSize: 25.0,
                         color: Colors.black,
                         onPressed: () => Navigator.pop(context),
                       ),
                       IconButton(
                         icon: Icon(FontAwesomeIcons.sortAmountDown),
-                        iconSize: 25.0,
+                        iconSize: 22.0,
                         color: Colors.black,
                         onPressed: () => Navigator.pop(context),
                       )
@@ -87,7 +88,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                   Text(widget.destination.city,
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 35,
+                          fontSize: 20,
                           fontWeight: FontWeight.w600,
                           letterSpacing: 1.2)),
                   Row(children: <Widget>[
@@ -96,7 +97,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                     SizedBox(width: 5),
                     Text(widget.destination.country,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 16,
                           color: Colors.white70,
                         )),
                   ]),
@@ -109,22 +110,22 @@ class _DestinationScreenState extends State<DestinationScreen> {
               child: Icon(
                 Icons.location_on,
                 color: Colors.white70,
-                size: 20.0,
+                size: 30.0,
               ),
             )
           ],
         ),
         Expanded(
           child: ListView.builder(
-            padding: EdgeInsets.only(top: 10, bottom: 10),
+            padding: EdgeInsets.only(top: 5, bottom: 5),
             itemCount: widget.destination.activities.length,
             itemBuilder: (BuildContext context, int index) {
               Activity activity = widget.destination.activities[index];
               return Stack(
                 children: <Widget>[
                   Container(
-                    margin: EdgeInsets.fromLTRB(25.0, 10.0, 20.0, 20.0),
-                    height: 200,
+                    margin: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
+                    height: 240,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -137,7 +138,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                       ],
                     ),
                     child: Padding(
-                      padding: EdgeInsets.fromLTRB(120, 20, 20, 20),
+                      padding: EdgeInsets.fromLTRB(140, 15, 10, 20),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -151,7 +152,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                 child: Text(
                                   activity.name,
                                   style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.w600),
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 2,
@@ -163,27 +164,30 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                   Container(
                                     child: Text('\$${activity.price}',
                                         style: TextStyle(
-                                            fontSize: 20,
+                                            fontSize: 10,
                                             fontWeight: FontWeight.w600)),
                                   ),
-                                  SizedBox(width: 15.0),
+                                  SizedBox(width: 10.0),
                                   Text('pre pex',
-                                      style: TextStyle(color: Colors.grey)),
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 12,
+                                      )),
                                 ],
                               ),
                             ],
                           ),
                           Text(activity.type,
                               style: TextStyle(color: Colors.grey)),
-                          SizedBox(height: 5.0),
+                          SizedBox(height: 3.0),
                           _buildRationStars(activity.rating),
-                          SizedBox(height: 18.0),
+                          SizedBox(height: 10.0),
                           //
                           Row(
                             children: <Widget>[
                               Container(
                                 padding: EdgeInsets.all(5),
-                                width: 80.0,
+                                width: 85.0,
                                 decoration: BoxDecoration(
                                   color: Theme.of(context).accentColor,
                                   borderRadius: BorderRadius.circular(10.0),
@@ -194,7 +198,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                               SizedBox(width: 10.0),
                               Container(
                                 padding: EdgeInsets.all(5),
-                                width: 80.0,
+                                width: 85.0,
                                 decoration: BoxDecoration(
                                   color: Theme.of(context).accentColor,
                                   borderRadius: BorderRadius.circular(10.0),
@@ -209,13 +213,13 @@ class _DestinationScreenState extends State<DestinationScreen> {
                     ),
                   ),
                   Positioned(
-                    left: 15.0,
+                    left: 7.0,
                     top: 25.0,
-                    bottom: 25.0,
+                    bottom: 20.0,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20.0),
                       child: Image(
-                          width: 110,
+                          width: 140,
                           image: AssetImage(activity.imageUrl),
                           fit: BoxFit.cover),
                     ),
