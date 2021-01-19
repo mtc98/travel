@@ -13,7 +13,7 @@ class HotelCarousel extends StatelessWidget {
             children: <Widget>[
               Text('特色旅店',
                   style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1.0)),
               Text('觀看全部',
@@ -26,7 +26,7 @@ class HotelCarousel extends StatelessWidget {
           ),
         ),
         Container(
-          height: 300.0,
+          height: 320.0,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: hotels.length,
@@ -35,21 +35,21 @@ class HotelCarousel extends StatelessWidget {
               //Destination destination = destinations[index];
               return Container(
                   width: 240,
-                  margin: EdgeInsets.all(10.0),
+                  margin: EdgeInsets.all(12.0),
                   child: Stack(
                     alignment: Alignment.topCenter,
                     children: <Widget>[
                       Positioned(
                         bottom: 15.0,
                         child: Container(
-                          height: 120.0,
-                          width: 240.0,
+                          height: 130.0,
+                          width: 250.0,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
+                            borderRadius: BorderRadius.circular(20.0),
                             color: Colors.white,
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(10.0),
+                            padding: EdgeInsets.all(5.0),
                             child: Column(
                               //位置於底端
                               mainAxisAlignment: MainAxisAlignment.end,
@@ -59,7 +59,7 @@ class HotelCarousel extends StatelessWidget {
                                   //'${destination.activities.length} activetives',
                                   hotel.name,
                                   style: TextStyle(
-                                      fontSize: 22,
+                                      fontSize: 16,
                                       fontWeight: FontWeight.w600,
                                       letterSpacing: 1.2),
                                 ),
@@ -74,7 +74,7 @@ class HotelCarousel extends StatelessWidget {
                                   //destination.description,
                                   '\$${hotel.price} / night',
                                   style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 13,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
